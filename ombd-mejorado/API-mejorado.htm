@@ -53,19 +53,24 @@ src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
  {
  apikey: api_key,
  r: "json",
- s: $("#txt_buscar").val()
+ t: $("#txt_buscar").val()
  },
  function(data, status) {
  console.log(data);
 
  var peliculas = "";
-for(ind=0; ind< data.Search.length; ind++){
-    peliculas += "<h2>" + data.Search[ind].Title +"</h2>";
-    peliculas += "<h3>" + data.Search[ind].Year +"</h3>"; 
-    peliculas += '<img src="' + data.Search[ind].Poster +'">"';
+    peliculas += '<img src="' + data.Poster +'">"';
+    peliculas += "<h2> Titulo: " + data.Title +"</h2>";
+    peliculas += "<h3> year: " + data.Year +"</h3>";
+    peliculas += "<h3> Clasificacion: " + data.Realased +"</h3>"; 
+    peliculas += "<p> Sinopsis:" + data.Plot +"</p>";
+    peliculas += "<p> Actores: " + data.Actors +"<p>";
+    peliculas += "<p> Lenguage: " + data.Language +"</h3>";
+    peliculas += "<p> Ciudad: " + data.Country +"</h3>";
+    
             
     $("#results").html(peliculas); 
- }
+
  }
  );
  });
